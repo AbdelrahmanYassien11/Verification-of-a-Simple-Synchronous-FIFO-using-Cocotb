@@ -1,0 +1,91 @@
+# do sim_build/runsim.do
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap -c 
+# ** Warning: vmap will not overwrite local modelsim.ini.
+# QuestaSim-64 vmap 2021.1 Lib Mapping Utility 2021.01 Jan 19 2021
+# vmap work sim_build/work 
+# Modifying modelsim.ini
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 23:39:50 on Aug 10,2024
+# vlog -work work "+define+COCOTB_SIM" -sv -timescale 1ns/1ps -mfcu "+acc" F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 23:39:50 on Aug 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -onfinish exit -pli "F:/Python/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" sim_build/work.fifo 
+# Start time: 23:39:51 on Aug 10,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vsim-3865) Due to PLI being present, global +acc is being enabled automatically. This will cause your simulation to run very slowly. Please use vsim -no_autoacc to disable this feature. This feature is now deprecated and will be removed from future releases.
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.fifo(fast)
+# Loading F:/Python/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll
+#      -.--ns INFO     gpi                                ..mbed\gpi_embed.cpp:81   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+#      0.00ns INFO     cocotb                             Running on ModelSim for Questa-64 version 2021.1 2021.01
+# 
+#      0.00ns INFO     cocotb                             Running tests with cocotb v1.9.0 from F:\Python\Lib\site-packages\cocotb
+# 
+#      0.00ns INFO     cocotb                             Seeding Python random module with 1723322398
+# 
+#      0.00ns INFO     cocotb                             Logger is set up and should print messages.
+# 
+#      0.00ns INFO     cocotb.regression                  Found test fifo_test.fifo_test
+# 
+#      0.00ns INFO     cocotb.regression                  running fifo_test (1/1)
+# 
+#     10.00ns INFO     cocotb                             [10000]entered expected_values
+# 
+#     10.00ns INFO     cocotb                             [10000]entered output_checker
+# 
+#     10.00ns ERROR    fifo_test                          Failed: Expected data_out = 0 when actual_data_out = xxxxxxxx,  expected_empty = 1 when actual_empty = 1,  expected_full = 0 when actual_full = 0
+# 
+#     12.00ns INFO     cocotb                             [12000]entered expected_values
+# 
+#     12.00ns INFO     cocotb                             [12000]entered output_checker
+# 
+#     12.00ns ERROR    fifo_test                          Failed: Expected data_out = 0 when actual_data_out = xxxxxxxx,  expected_empty = 0 when actual_empty = 1,  expected_full = 0 when actual_full = 0
+# 
+#     16.00ns INFO     cocotb                             [16000]entered expected_values
+# 
+#     16.00ns INFO     cocotb                             [16000]entered output_checker
+# 
+#     16.00ns ERROR    fifo_test                          Failed: Expected data_out = 01100011 when actual_data_out = 01100011,  expected_empty = 1 when actual_empty = 0,  expected_full = 0 when actual_full = 0
+# 
+#     16.00ns INFO     cocotb.regression                  fifo_test passed
+# 
+#     16.00ns INFO     cocotb.regression                  **************************************************************************************
+# 
+#                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+# 
+#                                                         **************************************************************************************
+# 
+#                                                         ** fifo_test.fifo_test            PASS          16.00           0.00       5365.61  **
+# 
+#                                                         **************************************************************************************
+# 
+#                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                 16.00           0.04        369.64  **
+# 
+#                                                         **************************************************************************************
+# 
+#                                                         
+# 
+# ** Note: $finish
+#    Time: 16001 ps  Iteration: 0  Instance: /fifo
+# End time: 23:39:58 on Aug 10,2024, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 1

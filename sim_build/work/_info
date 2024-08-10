@@ -1,0 +1,47 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dF:/ic_design/repos/python_environment/FiFO_cocotb
+T_opt
+!s110 1723322392
+V6dDoEbTfndk`GQUEZ<EbS1
+04 4 4 work fifo fast 0
+=1-98e743467fb1-66b7d017-265-4c2c
+!s124 OEM100
+o-quiet +acc -auto_acc_if_foreign -work sim_build/work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.1;73
+vfifo
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1723322390
+!i10b 1
+!s100 P<i==I2_d0oga:RiFb2O[1
+IKzTz<_:4g[g2;d<zjKL3a0
+S1
+R0
+w1723233144
+8F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v
+FF:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v
+!i122 0
+L0 1 44
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1723322390.000000
+!s107 F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v|
+!s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|+acc|F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v|
+!i113 0
+o-work work -sv -timescale 1ns/1ps -mfcu +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -work work +define+COCOTB_SIM -sv -timescale 1ns/1ps -mfcu +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
