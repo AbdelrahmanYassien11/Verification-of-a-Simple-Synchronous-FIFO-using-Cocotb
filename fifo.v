@@ -1,44 +1,47 @@
-module fifo (
-    input wire clk,
-    input wire reset,
-    input wire wr_en,
-    input wire rd_en,
-    input wire [7:0] data_in,
-    output reg [7:0] data_out,
-    output reg full,
-    output reg empty
+module synchronous_fifo #(parameter DEPTH=8, DATA_WIDTH=8) (
+  input clk, rst_n,
+  input wr_en, rd_en,
+  input [DATA_WIDTH-1:0] data_in,
+  output reg [DATA_WIDTH-1:0] data_out,
+  output full, empty
 );
-
-    reg [7:0] fifo_mem [3:0]; // 4-deep FIFO
-    reg [1:0] write_ptr;
-    reg [1:0] read_ptr;
-    reg [2:0] count; // To keep track of number of elements
-
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            write_ptr <= 2'b00;
-            read_ptr <= 2'b00;
-            count <= 3'b000;
-            full <= 1'b0;
-            empty <= 1'b1;
-        end else begin
-            // Write operation
-            if (wr_en && !full) begin
-                fifo_mem[write_ptr] <= data_in;
-                write_ptr <= write_ptr + 1;
-                count <= count + 1;
-            end
-
-            // Read operation
-            if (rd_en && !empty) begin
-                data_out <= fifo_mem[read_ptr];
-                read_ptr <= read_ptr + 1;
-                count <= count - 1;
-            end
-
-            // Update full and empty flags
-            full <= (count == 3'b100);
-            empty <= (count == 3'b000);
-        end
+  
+  parameter PTR_WIDTH = $clog2(DEPTH);
+  reg [PTR_WIDTH:0] w_ptr, r_ptr; // addition bit to detect full/empty condition
+  reg [DATA_WIDTH-1:0] fifo[DEPTH];
+  reg wrap_around;
+  
+  // Set Default values on reset.
+  always@(posedge clk) begin
+    if(!rst_n) begin
+      w_ptr <= 0; r_ptr <= 0;
+      data_out <= 0;
     end
+  end
+  
+  // To write data to FIFO
+  always@(posedge clk) begin
+    if(wr_en & !full)begin
+      fifo[w_ptr[PTR_WIDTH-1:0]] <= data_in;
+      w_ptr <= w_ptr + 1;
+    end
+  end
+  
+  // To read data from FIFO
+  always@(posedge clk) begin
+    if(rd_en & !empty) begin
+      data_out <= fifo[r_ptr[PTR_WIDTH-1:0]];
+      r_ptr <= r_ptr + 1;
+    end
+  end
+  
+  assign wrap_around = w_ptr[PTR_WIDTH] ^ r_ptr[PTR_WIDTH]; // To check MSB of write and read pointers are different
+  
+  //Full condition: MSB of write and read pointers are different and remainimg bits are same.
+  assign full = wrap_around & (w_ptr[PTR_WIDTH-1:0] == r_ptr[PTR_WIDTH-1:0]);
+  
+  //Empty condition: All bits of write and read pointers are same.
+  //assign empty = !wrap_around & (w_ptr[PTR_WIDTH-1:0] == r_ptr[PTR_WIDTH-1:0]);
+  //or
+  assign empty = (w_ptr == r_ptr);
 endmodule

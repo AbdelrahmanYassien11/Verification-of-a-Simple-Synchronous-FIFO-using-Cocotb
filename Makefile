@@ -11,7 +11,7 @@ VERILOG_SOURCES += $(PWD)/fifo.v
 # use VHDL_SOURCES for VHDL files
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
-TOPLEVEL = fifo
+TOPLEVEL = synchronous_fifo
 
 # MODULE is the basename of the Python test file
 MODULE = fifo_test
