@@ -6,16 +6,16 @@
 # vmap work sim_build/work 
 # Modifying modelsim.ini
 # QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 05:09:24 on Aug 11,2024
+# Start time: 07:37:48 on Aug 11,2024
 # vlog -work work "+define+COCOTB_SIM" -sv -timescale 1ns/1ps -mfcu "+acc" F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v 
 # -- Compiling module synchronous_fifo
 # 
 # Top level modules:
 # 	synchronous_fifo
-# End time: 05:09:25 on Aug 11,2024, Elapsed time: 0:00:01
+# End time: 07:37:48 on Aug 11,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -onfinish exit -pli "F:/Python/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" sim_build/work.synchronous_fifo 
-# Start time: 05:09:25 on Aug 11,2024
+# Start time: 07:37:48 on Aug 11,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vsim-3865) Due to PLI being present, global +acc is being enabled automatically. This will cause your simulation to run very slowly. Please use vsim -no_autoacc to disable this feature. This feature is now deprecated and will be removed from future releases.
 # //  Questa Sim-64
@@ -41,7 +41,7 @@
 # 
 #      0.00ns INFO     cocotb                             Running tests with cocotb v1.9.0 from F:\Python\Lib\site-packages\cocotb
 # 
-#      0.00ns INFO     cocotb                             Seeding Python random module with 1723342174
+#      0.00ns INFO     cocotb                             Seeding Python random module with 1723351076
 # 
 #      0.00ns INFO     cocotb                             Logger is set up and should print messages.
 # 
@@ -49,63 +49,65 @@
 # 
 #      0.00ns INFO     cocotb.regression                  running fifo_test (1/1)
 # 
-#      0.00ns INFO     cocotb                             [reset_dut: Time = 0]
+#     10.00ns INFO     cocotb                             [reset_dut: Time = 10000  rst_n = 0]
 # 
-#     10.00ns INFO     cocotb                             [write_dut: Time = 10000]
+#     12.00ns INFO     cocotb                             [write: Time = 12000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 10000000]
 # 
-#     12.00ns INFO     cocotb                             [write_dut: Time = 12000]
+#     16.00ns INFO     cocotb                             [write: Time = 16000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 01111000]
 # 
-#     16.00ns INFO     cocotb                             [write_dut: Time = 16000]
+#     20.00ns INFO     cocotb                             [write: Time = 20000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 01101101]
 # 
-#     20.00ns INFO     cocotb                             [write_dut: Time = 20000]
+#     24.00ns INFO     cocotb                             [write: Time = 24000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 01011110]
 # 
-#     24.00ns INFO     cocotb                             [write_dut: Time = 24000]
+#     28.00ns INFO     cocotb                             [write: Time = 28000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 00000011]
 # 
-#     28.00ns INFO     cocotb                             [write_dut: Time = 28000]
+#     32.00ns INFO     cocotb                             [write: Time = 32000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 00001101]
 # 
-#     32.00ns INFO     cocotb                             [write_dut: Time = 32000]
+#     36.00ns INFO     cocotb                             [write: Time = 36000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 01011111]
 # 
-#     36.00ns INFO     cocotb                             [write_dut: Time = 36000]
+#     40.00ns INFO     cocotb                             [write: Time = 40000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 00110000]
 # 
-#     40.00ns INFO     cocotb                             [write_dut: Time = 40000]
+#     44.00ns INFO     cocotb                             [write: Time = 44000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 00100000]
 # 
-#     44.00ns INFO     cocotb                             [read_dut: Time = 44000]
+#     48.00ns INFO     cocotb                             [write: Time = 48000  rst_n = 1  wr_en = 1  rd_en = 0  data_in = 00011111]
 # 
-#     48.00ns INFO     cocotb                             [read_dut: Time = 48000]
+#     52.00ns INFO     cocotb                             [read_dut: Time = 52000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 10000000]
 # 
-#     52.00ns INFO     cocotb                             [read_dut: Time = 52000]
+#     56.00ns INFO     cocotb                             [read_dut: Time = 56000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 01111000]
 # 
-#     56.00ns INFO     cocotb                             [read_dut: Time = 56000]
+#     60.00ns INFO     cocotb                             [read_dut: Time = 60000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 01101101]
 # 
-#     60.00ns INFO     cocotb                             [read_dut: Time = 60000]
+#     64.00ns INFO     cocotb                             [read_dut: Time = 64000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 01011110]
 # 
-#     64.00ns INFO     cocotb                             [read_dut: Time = 64000]
+#     68.00ns INFO     cocotb                             [read_dut: Time = 68000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 00000011]
 # 
-#     68.00ns INFO     cocotb                             [read_dut: Time = 68000]
+#     72.00ns INFO     cocotb                             [read_dut: Time = 72000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 00001101]
 # 
-#     72.00ns INFO     cocotb                             [read_dut: Time = 72000]
+#     76.00ns INFO     cocotb                             [read_dut: Time = 76000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 01011111]
 # 
-#     76.00ns INFO     cocotb                             [read_dut: Time = 76000]
+#     80.00ns INFO     cocotb                             [read_dut: Time = 80000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 00110000]
 # 
-#     80.00ns INFO     cocotb.regression                  fifo_test passed
+#     84.00ns INFO     cocotb                             [read_dut: Time = 84000  rst_n = 1  wr_en = 0  rd_en = 1  data_out = 00110000]
 # 
-#     80.00ns INFO     cocotb.regression                  **************************************************************************************
+#     84.00ns INFO     cocotb.regression                  fifo_test passed
+# 
+#     84.00ns INFO     cocotb.regression                  **************************************************************************************
 # 
 #                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
 # 
 #                                                         **************************************************************************************
 # 
-#                                                         ** fifo_test.fifo_test            PASS          80.00           0.01      10041.25  **
+#                                                         ** fifo_test.fifo_test            PASS          84.00           0.01      11591.95  **
 # 
 #                                                         **************************************************************************************
 # 
-#                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                 80.00           0.05       1620.18  **
+#                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                 84.00           0.05       1641.92  **
 # 
 #                                                         **************************************************************************************
 # 
 #                                                         
 # 
 # ** Note: $finish
-#    Time: 80001 ps  Iteration: 0  Instance: /synchronous_fifo
-# End time: 05:09:34 on Aug 11,2024, Elapsed time: 0:00:09
+#    Time: 84001 ps  Iteration: 0  Instance: /synchronous_fifo
+# End time: 07:37:56 on Aug 11,2024, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 1

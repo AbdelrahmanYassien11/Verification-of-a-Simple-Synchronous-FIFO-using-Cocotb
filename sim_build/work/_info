@@ -11,10 +11,10 @@ z2
 cModel Technology
 Z0 dF:/ic_design/repos/python_environment/FiFO_cocotb
 T_opt
-!s110 1723342167
-VlPkFe@@[]]?SOOn?]nL2O0
+!s110 1723351070
+VXgz[[@KlN3RdA0dmWfUGb0
 04 16 4 work synchronous_fifo fast 0
-=1-98e743467fb1-66b81d56-ca-2ef8
+=1-98e743467fb1-66b8401d-c9-2fec
 !s124 OEM100
 o-quiet +acc -auto_acc_if_foreign -work sim_build/work
 Z1 tCvgOpt 0
@@ -22,7 +22,7 @@ n@_opt
 OL;O;2021.1;73
 vsynchronous_fifo
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1723342165
+!s110 1723351068
 !i10b 1
 !s100 ^FZ?D@8FZSU[FUR5:JDCi2
 IJljf8A[aN0MXX[Vl[;9<:2
@@ -38,7 +38,7 @@ OL;L;2021.1;73
 r1
 !s85 0
 31
-!s108 1723342164.000000
+!s108 1723351068.000000
 !s107 F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v|
 !s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|+acc|F:/ic_design/repos/python_environment/FiFO_cocotb/fifo.v|
 !i113 0

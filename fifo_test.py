@@ -20,8 +20,8 @@ expected_empty = None
 expected_full = None
 
 count = 0
-
-randomized_tests = random.randint(8, 12)
+operation_count = 0
+randomized_tests = random.randint(19, 25)
 
 def verilog_value_to_python(value):
     """Convert Verilog 'x' or 'z' to Python None."""
@@ -35,47 +35,54 @@ def generate_constrained_data_in():
     while count == 0:
         data = random.randint(0, 128)  # 4-bit data range (0 to 15)
         if data == 128:  # Constraint: Data must be even
-            count++;
+            count = count +1
             return data
         elif data == 0:
-            count++;
+            count = count +1
             return data
     data = random.randint(0, 128)
     return data
 
-# def randomize_operation():
-#     while operation_count <= 9:
+async def randomize_operation(dut):
+    global operation_count
+    while operation_count <= 9:
+        operation = random.randint(0,1)
+        if(operation == 0):
+            operation_count = operation_count + 1;
+            return await write_dut(dut)
+    while ((operation_count <= 18) and (operation_count >= 9)):
+        operation = random.randint(0,1)
+        if(operation == 1):
+            operation_count = operation_count + 1;
+            return await read_dut(dut)
+    operation = random.randint(0,1)
+    if(operation == 0):
+        return await write_dut(dut)
+    else:
+        return await read_dut(dut)
+
+
+
+
+# async def randomize_operation(dut):
+#     global operation_count
+#     if operation_count <= 9:
 #         operation = random.randint(0,1)
 #         if(operation == 0):
-#             operation++;
-#             return write_dut()
-#     while operation_count <= 18:
+#             operation_count = operation_count + 1;
+#             await write_dut(dut)
+#     elif ((operation_count <= 18) and (operation_count >= 9)):
 #         operation = random.randint(0,1)
 #         if(operation == 1):
-#             operation++;
-#             return read_dut()
-#     operation = random.randint(0,1)
-#     if(operation == 0):
-#         return write_dut()
+#             operation_count = operation_count + 1;
+#             await read_dut(dut)
 #     else:
-#         return read_dut()
+#         operation = random.randint(0,1)
+#         if(operation == 0):
+#             await write_dut(dut)
+#         else:
+#             await read_dut(dut)
 
-
-
-
-
-    global count
-    while count == 0:
-        data = random.randint(0, 128)  # 4-bit data range (0 to 15)
-        if data == 128:  # Constraint: Data must be even
-            count++;
-            return data
-        elif data == 0:
-            count++;
-            return data
-
-    data = random.randint(0, 128)
-    return data
 
 
 
@@ -149,25 +156,23 @@ async def reset_dut (dut):
     dut.rst_n.value = 1
 
 async def write_dut (dut):
-    cocotb.log.info(f"[write_dut: Time = {get_sim_time()}]")
     await FallingEdge(dut.clk)
     dut.wr_en.value = 1
     dut.rd_en.value = 0
     dut.data_in.value = generate_constrained_data_in()
     await FallingEdge(dut.clk)
-    cocotb.log.info(f"[reset_dut: Time = {get_sim_time()}  rst_n = {dut.rst_n.value}  wr_en = {dut.wr_en.value}  rd_en = {dut.rd_en.value}  data_in = {dut.data_in.value}]")
+    cocotb.log.info(f"[write: Time = {get_sim_time()}  rst_n = {dut.rst_n.value}  wr_en = {dut.wr_en.value}  rd_en = {dut.rd_en.value}  data_in = {dut.data_in.value}]")
     expected_values(dut.rst_n.value, dut.wr_en.value, dut.rd_en.value, dut.data_in.value)
     output_checker(expected_data_out, expected_empty, expected_full, dut.data_out.value, dut.empty.value, dut.full.value)
     dut.wr_en.value = 0
 
 
 async def read_dut (dut):
-    cocotb.log.info(f"[read_dut: Time = {get_sim_time()}]")
     await FallingEdge(dut.clk)
     dut.wr_en.value = 0
     dut.rd_en.value = 1
     await FallingEdge(dut.clk)
-    cocotb.log.info(f"[reset_dut: Time = {get_sim_time()}  rst_n = {dut.rst_n.value}  wr_en = {dut.wr_en.value}  rd_en = {dut.rd_en.value}  data_in = {dut.data_in.value}]")
+    cocotb.log.info(f"[read_dut: Time = {get_sim_time()}  rst_n = {dut.rst_n.value}  wr_en = {dut.wr_en.value}  rd_en = {dut.rd_en.value}  data_out = {dut.data_out.value}]")
     expected_values(dut.rst_n.value, dut.wr_en.value, dut.rd_en.value, dut.data_in.value)
     output_checker(expected_data_out, expected_empty, expected_full, dut.data_out.value, dut.empty.value, dut.full.value)
     dut.rd_en.value = 0
@@ -185,10 +190,14 @@ async def fifo_test(dut):
     await reset_dut(dut)
 
     for cycle in range(randomized_tests):
-        await write_dut(dut)
+        await randomize_operation(dut)
 
-    for cycle in range(randomized_tests):
-        await read_dut(dut)
+
+    #for cycle in range(randomized_tests):
+    #    await write_dut(dut)
+
+    #for cycle in range(randomized_tests):
+    #    await read_dut(dut)
 
 
 
