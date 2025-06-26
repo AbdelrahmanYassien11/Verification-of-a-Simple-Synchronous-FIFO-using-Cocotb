@@ -1,42 +1,56 @@
-# Verification of a Simple Synchronous FIFO using Cocotb
+<p align="center">
+  <img src="https://img.shields.io/badge/RTL-Synchronous%20FIFO-blueviolet?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Verification-Cocotb%20%7C%20Python-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Language-Verilog%20%7C%20Python-orange?style=for-the-badge" />
+</p>
 
-![Verilog](https://img.shields.io/badge/language-Verilog-blue.svg)
-![Python](https://img.shields.io/badge/language-Python-blue.svg)
-![Cocotb](https://img.shields.io/badge/tested_with-cocotb-green.svg)
+<h1 align="center" style="color:#7c3aed;">📦 Verification of a Simple Synchronous FIFO using Cocotb 📦</h1>
 
----
-
-## Overview
-
-This repository contains a **simple, parameterized synchronous FIFO** (First-In-First-Out) buffer implemented in Verilog, along with a comprehensive testbench written in Python using the [Cocotb](https://www.cocotb.org/) cosimulation framework. The project demonstrates both RTL design and modern verification techniques, making it an excellent resource for students, engineers, and anyone interested in hardware design and verification.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Directory Structure](#directory-structure)
-- [FIFO Design (`fifo.v`)](#fifo-design-fifov)
-- [Testbench and Verification (`fifo_test.py`)](#testbench-and-verification-fifo_testpy)
-- [Simulation Setup](#simulation-setup)
-- [How to Run](#how-to-run)
-- [Results](#results)
-- [References](#references)
+<p align="center">
+  <b>A modern, parameterized Synchronous FIFO in Verilog with a Pythonic Cocotb testbench.</b><br>
+  <a href="https://www.cocotb.org/">
+    🐍 Cocotb Docs
+  </a>
+  |
+  <a href="https://www.sunburst-design.com/papers/CummingsSNUG2002SJ_FIFO1.pdf">
+    📄 FIFO Design Reference
+  </a>
+</p>
 
 ---
 
-## Features
+## 🌈 Overview
 
-- **Synchronous FIFO** with configurable depth and data width
-- **Full and Empty flag logic** for robust boundary control
-- **Parameterized design** for easy reuse and scaling
-- **Cocotb-based testbench** for advanced, Python-powered verification
-- **Randomized and constrained stimulus** to catch corner cases
-- **Automated checking** of FIFO data integrity and flag correctness
+This repository contains a **simple, parameterized synchronous FIFO** (First-In-First-Out) buffer implemented in Verilog, along with a powerful testbench written in Python using the <b style="color:#ff9900">Cocotb</b> cosimulation framework.<br>
+It demonstrates both RTL design and modern verification techniques—an excellent resource for students, engineers, and hardware enthusiasts!
 
 ---
 
-## Directory Structure
+## 📋 Table of Contents
+
+- [✨ Features](#-features)
+- [📁 Directory Structure](#-directory-structure)
+- [🛠️ FIFO Design (`fifo.v`)](#️-fifo-design-fifov)
+- [🔬 Testbench and Verification (`fifo_test.py`)](#-testbench-and-verification-fifo_testpy)
+- [⚙️ Simulation Setup](#️-simulation-setup)
+- [🚀 How to Run](#-how-to-run)
+- [📊 Results](#-results)
+- [🔗 References](#-references)
+
+---
+
+## ✨ Features
+
+- <b style="color:#337ab7">Synchronous FIFO</b> with configurable depth and data width
+- <b style="color:#c83737">Full</b> and <b style="color:#2eb82e">Empty</b> flag logic for robust boundary control
+- <b style="color:#fd7e14">Parameterized design</b> for easy reuse and scaling
+- <b style="color:#ffb700">Cocotb-based testbench</b> for advanced, Python-powered verification
+- <b style="color:#c471ed">Randomized and constrained stimulus</b> to catch corner cases
+- <b style="color:#009688">Automated checking</b> of FIFO data integrity and flag correctness
+
+---
+
+## 📁 Directory Structure
 
 ```
 .
@@ -52,7 +66,7 @@ This repository contains a **simple, parameterized synchronous FIFO** (First-In-
 
 ---
 
-## FIFO Design (`fifo.v`)
+## 🛠️ FIFO Design (`fifo.v`)
 
 The core of this repository is a **parameterized synchronous FIFO** module, supporting customizable depth and data width.
 
@@ -79,16 +93,16 @@ endmodule
 
 ---
 
-## Testbench and Verification (`fifo_test.py`)
+## 🔬 Testbench and Verification (`fifo_test.py`)
 
 The verification environment is written entirely in Python using Cocotb, allowing for expressive, randomized tests and easy log analysis.
 
 **Highlights:**
-- **Randomized Write/Read Operations:** Ensures a variety of scenarios, including corner cases.
-- **Constrained Input Generation:** Only even/zero data in some cases, reflecting realistic constraints.
-- **Functional Coverage:** Checks both data integrity and control signal correctness.
-- **Automated Output Checking:** Compares expected and actual outputs on-the-fly.
-- **Detailed Logging:** Time-stamped, readable logs for debugging and documentation.
+- <b style="color:#fd7e14">Randomized Write/Read Operations:</b> Ensures a variety of scenarios, including corner cases.
+- <b style="color:#8e44ad">Constrained Input Generation:</b> Only even/zero data in some cases, reflecting realistic constraints.
+- <b style="color:#00b8a9">Functional Coverage:</b> Checks both data integrity and control signal correctness.
+- <b style="color:#e17055">Automated Output Checking:</b> Compares expected and actual outputs on-the-fly.
+- <b style="color:#333">Detailed Logging:</b> Time-stamped, readable logs for debugging and documentation.
 
 <details>
 <summary>Click to view Python snippet</summary>
@@ -106,7 +120,7 @@ async def fifo_test(dut):
 
 ---
 
-## Simulation Setup
+## ⚙️ Simulation Setup
 
 This project leverages **Cocotb** for testbench and supports simulators like Questa/ModelSim.
 
@@ -126,7 +140,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 
 ---
 
-## How to Run
+## 🚀 How to Run
 
 1. **Install dependencies** (Python, Cocotb, Verilog simulator)
 2. **Clone this repository:**
@@ -142,7 +156,7 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 
 ---
 
-## Results
+## 📊 Results
 
 - **Simulation outputs:** See `transcript` and `results.xml` for run logs and summary.
 - **Pass/Fail cases:** All key FIFO behaviors (write, read, full, empty, reset) are exercised and checked for correctness.
@@ -150,13 +164,15 @@ include $(shell cocotb-config --makefiles)/Makefile.sim
 
 ---
 
-## References
+## 🔗 References
 
-- [Cocotb Official Documentation](https://docs.cocotb.org/)
-- [Verilog Standard](https://ieeexplore.ieee.org/document/954909)
-- [FIFO Design Techniques](https://www.sunburst-design.com/papers/CummingsSNUG2002SJ_FIFO1.pdf)
+- <a href="https://docs.cocotb.org/">Cocotb Official Documentation</a>
+- <a href="https://ieeexplore.ieee.org/document/954909">Verilog Standard</a>
+- <a href="https://www.sunburst-design.com/papers/CummingsSNUG2002SJ_FIFO1.pdf">FIFO Design Techniques (Cummings, SNUG 2002)</a>
 
 ---
 
-**Happy Simulating!** 🚀  
-If you have questions or suggestions, feel free to open an issue or contribute!
+<p align="center">
+  <b>Happy Simulating!</b> 🚀<br>
+  <i>If you have questions or suggestions, feel free to open an issue or contribute!</i>
+</p>
